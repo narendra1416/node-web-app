@@ -8,7 +8,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://devops-n@bitbucket.org/devopsn/analytics-nxt.git'
+git 'https://github.com/narendra1416/node-web-app.git'
 }
 }
 stage('Building our image') {
