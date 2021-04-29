@@ -32,12 +32,18 @@ pipeline {
     
     stage('Deploy App') {
       steps {
-        script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "kubetest")
-        }
+            sshagent(['k8s-new']) {
+                    script {
+                         
+                           sh 'ssh ubuntu@172.31.73.227 && sudo su'
+                           sh 'kubectl get nodes'
+                           
+                }
+              }
+            }
+
+         }
+
       }
+
     }
-
-  }
-
-}
